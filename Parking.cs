@@ -1,35 +1,44 @@
+/*
+1)Userdən integer bir dəyər alırsınız.Aldığınız ədədin sadə vəya mürəkkəb olub olmamasını yoxlayan alqoritm qurursunuz.
+2)Userdən integer dəyər götürürsünüz və userin daxil etdiyi ədədə qədər olan sadə ədədlərin cəmini çap edən alqoritm qurun.
+3)Userdən en və uzunluq dəyərləri götürün və daxil edilən dəyərlər üzrə düzbucaqlı yaradan alqoritm qurun.
+*/
 
-class Parking
+class MyClass1
 {
-    public static void Main()
+    public static int MinValue(int[] num)
     {
-        Console.Write("Neçə Saat qalacaq: ");
-        int saatlar = Convert.ToInt32(Console.ReadLine());
-        double deger = Hesabla(saatlar);
-        Console.WriteLine($"Ümumi ödəniləcək deger: {deger} maat");
+        int i = 0;
+        int @return = num[0];
+        do
+        {
+            if (num[i] < @return)
+            {
+                @return = num[i];
+            }
+            i++;
+        } while (num.Length > i);
+        return @return;
     }
 
-    static double Hesabla(int saatlar)
+    public static bool IsPolindrom()
     {
-        double deger = 0;
-        
-        if (saatlar <= 3)
+        Console.Write("Dəyər gir: ");
+        string StringValue = Console.ReadLine();
+        for (int i = 0; i < StringValue.Length; i++)
         {
-            deger = saatlar * 1;
+            if (StringValue[i] != StringValue[StringValue.Length - i - 1])
+            {
+                return false;
+            }
         }
-        else if (saatlar <= 5)
-        {
-            deger = 3 * 1 + (saatlar - 3) * 0.80;
-        }
-        else if (saatlar <= 8)
-        {
-            deger = 3 * 1 + 2 * 0.80 + (saatlar - 5) * 0.50;
-        }
-        else
-        {
-            deger = 3 * 1 + 2 * 0.80 + 3 * 0.50 + (saatlar - 8) * 0.25;
-        }
-
-        return deger;
+        return true;
     }
+
+    public static double Rectangle(double en, double uzun) // Düzbucaqlı
+    {
+        return en * uzun;
+    }
+
+    
 }
